@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+//DELCARAÇÃO DAS VARIAVEIS 
+int main() { 
+    int torre;
+    int rainha = 0;
+    int bispo = 0;
+
+    // Movimento da Torre
+    for (torre = 0; torre <= 5; torre++) {
+        printf("TORRE PARA A DIREITA\n");      // DECLARAEI PARA APARECER COMO TORRE A  DIREITA PARA O CODIGO FICAR MELHOR ESTRUTURADO
+    }
+
+    // Movimento da Rainha 
+    while (rainha <= 8) {
+        printf("RAINHA PARA A ESQUERDA\n");      //DECLAREI ASSIM PARA MELHOR ESTRUTURAÇÃO DO CODIGO
+        rainha++;
+    }
+
+    // Movimento do Bispo
+    do {
+        printf("BISPO PARA CIMA ESQUERDA\n");          //DECLAREI ASSIM PARA MELHOR ESTRUTURAÇÃO DO CODIGO
+        bispo++;
+    } while (bispo <= 5);
+
+//UTILIZAÇÃO DOS LOOPS ALINHADOS PARA FAZER O MOVIMENTO DO CAVALO 
+// Movimento do Cavalo: 2 para baixo + 1 para esquerda (forma "L")
+    int movimentosCavalo = 3;  // quantidade de vezes que o cavalo faz o "L"
+    int passo;
+
+    for (int i = 0; i < movimentosCavalo; i++) {
+        passo = 1;
+
+        // 2 passos para baixo, depois 1 para esquerda
+        while (passo <= 3) {
+            if (passo == 1 || passo == 2) {
+                printf("CAVALO PARA BAIXO\n");                   //DECLAREI ASSIM PARA MELHOR ESTRUTURAÇÃO DO CODIGO
+            } else if (passo == 3) {
+                printf("CAVALO PARA A ESQUERDA\n");              //DECLAREI ASSIM PARA MELHOR ESTRUTURAÇÃO DO CODIGO
+            }
+            passo++;
+        }
+    }
+
+    return 0;                                                   //TERMINA O PROGRAMA
+}
