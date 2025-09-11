@@ -1,0 +1,101 @@
+#include <stdio.h>
+
+// === FUNÇÕES RECURSIVAS ===
+
+// TORRE: Direita
+int moverTorre(int casas) {
+    if (casas == 0) {
+        return 0;
+    }
+    printf("TORRE PARA A DIREITA\n");
+    return moverTorre(casas - 1);
+}
+
+// RAINHA: Esquerda
+int moverRainha(int casas) {
+    if (casas == 0) {
+        return 0;
+    }
+    printf("RAINHA PARA A ESQUERDA\n");
+    return moverRainha(casas - 1);
+}
+
+// BISPO: Diagonal (cima + esquerda), com recursão + loop aninhado
+int moverBispo(int vertical, int horizontal) {
+    if (vertical == 0) {
+        return 0;
+    }
+
+    int j = 0;
+    while (j < horizontal) {
+        printf("BISPO PARA A ESQUERDA\n");
+        j++;
+    }
+    printf("BISPO PARA CIMA\n\n");
+
+    return moverBispo(vertical - 1, horizontal);
+}
+
+// CAVALO: 2 para cima, 1 para direita (em "L"), com loops aninhados complexos
+int moverCavalo(int movimentos) {
+    int i, j, l;
+
+    printf("Movimento do CAVALO (2 para cima, 1 para a direita):\n");
+
+    for (l = 0; l < movimentos; l++) {
+        i = 0;
+        j = 0;
+
+        for (; i < 3; i++) {
+            if (i == 0 || i == 1) {
+                printf("CAVALO PARA CIMA\n");
+                continue;
+            }
+
+            while (j < 1) {
+                if (l == 2) {
+                    break; // só demonstra como usar o break, não muda a lógica
+                }
+                printf("CAVALO PARA A DIREITA\n");
+                j++;
+            }
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}
+
+int main() {
+    // DECLARAÇÃO DAS VARIAVEIS 
+    int casasTorre = 6;
+    int casasRainha = 8;
+    int casasBispoVertical = 4;
+    int casasBispoHorizontal = 4;
+    int movimentosCavalo = 3;
+
+//SAIDA DE DADOS 
+// NA SAIDA DE DADOS VEM A INFORMAÇÃO DO MOVIMENTO DAS PEÇAS 
+    printf("=== MOVIMENTOS DAS PEÇAS ===\n\n");
+
+    
+    printf("Movimento da TORRE:\n");
+    moverTorre(casasTorre);
+    printf("\n");
+
+    
+    printf("Movimento da RAINHA:\n");
+    moverRainha(casasRainha);
+    printf("\n");
+
+    
+    printf("Movimento do BISPO:\n");
+    moverBispo(casasBispoVertical, casasBispoHorizontal);
+    printf("\n");
+
+    
+    moverCavalo(movimentosCavalo);
+
+    return 0;
+}
